@@ -4,6 +4,11 @@ public class Revista extends Publicacao {
     private int numeroEdicao;
     private String periodicidade;
 
+    // Construtor padrão (sem parâmetros)
+    public Revista() {
+        super("", "", 0); // Chama o construtor da classe pai Publicacao
+    }
+
     public Revista(String titulo, String autor, int anoPublicacao, int numeroEdicao, String periodicidade) {
         super(titulo, autor, anoPublicacao);
         this.numeroEdicao = numeroEdicao;
