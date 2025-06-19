@@ -1,3 +1,5 @@
+package com.biblioteca;
+
 import java.io.Serializable;
 
 public class Publicacao implements Serializable {

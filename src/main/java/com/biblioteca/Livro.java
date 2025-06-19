@@ -1,3 +1,5 @@
+package com.biblioteca;
+
 public class Livro extends Publicacao {
     private String editora;
     private int numeroPaginas;

@@ -1,3 +1,5 @@
+package com.biblioteca;
+
 public class Revista extends Publicacao {
     private int numeroEdicao;
     private String periodicidade;
