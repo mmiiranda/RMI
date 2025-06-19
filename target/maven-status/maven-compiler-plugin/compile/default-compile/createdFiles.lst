@@ -1,0 +1,11 @@
+com/biblioteca/Biblioteca.class
+com/biblioteca/Publicacao.class
+com/biblioteca/GestaoBibliotecaRemota.class
+com/biblioteca/Livro.class
+com/biblioteca/Revista.class
+com/biblioteca/Serializador.class
+com/biblioteca/Cliente.class
+com/biblioteca/ServidorBiblioteca.class
+com/biblioteca/BibliotecaRemotaImpl.class
+com/biblioteca/ClienteBiblioteca.class
+com/biblioteca/App.class

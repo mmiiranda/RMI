@@ -15,9 +15,9 @@ public class ClienteBiblioteca {
             Cliente cliente = new Cliente("João Silva", "CLI-001");
             biblioteca.registrarCliente(cliente);
             
-            Revista revista = new Revista("Ciência Hoje", "Vários", 2023, 150, "Mensal");
-            byte[] revistaSerializada = Serializador.toJson(revista);
-            String info = biblioteca.infoPublicacao(revistaSerializada);
+            Publicacao publicacao = new Revista("Ciência Hoje", "Vários", 2023, 150, "Mensal");
+            byte[] dadosSerializados = Serializador.toJson(publicacao);
+            String info = biblioteca.infoPublicacao(dadosSerializados);
             System.out.println("Informação da publicação: " + info);
             
             System.out.println("\nPublicações na biblioteca:");

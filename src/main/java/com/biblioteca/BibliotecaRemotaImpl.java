@@ -52,12 +52,13 @@ public class BibliotecaRemotaImpl extends UnicastRemoteObject implements GestaoB
     @Override
     public String infoPublicacao(byte[] publicacaoSerializada) throws RemoteException {
         try {
-            Publicacao p = (Publicacao) Serializador.fromJson(publicacaoSerializada);
+            // Desserializa especificando o tipo Publicacao
+            Publicacao p = Serializador.fromJson(publicacaoSerializada, Publicacao.class);
             return p.toString();
         } catch (Exception e) {
             throw new RemoteException("Erro ao desserializar publicação", e);
         }
-    }
+}
     
     // Método adicional para listar clientes
     public List<Cliente> listarClientes() throws RemoteException {
