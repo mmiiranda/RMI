@@ -1,25 +1,18 @@
 package com.biblioteca;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.jsontype.BasicPolymorphicTypeValidator;
-import com.fasterxml.jackson.databind.jsontype.PolymorphicTypeValidator;
 import java.io.IOException;
 
 public class Serializador {
     private static final ObjectMapper mapper = new ObjectMapper();
-    
-    static {
-        PolymorphicTypeValidator ptv = BasicPolymorphicTypeValidator.builder()
-                .allowIfSubType("com.biblioteca")
-                .build();
-        mapper.activateDefaultTyping(ptv, ObjectMapper.DefaultTyping.NON_FINAL);
-    }
-    
+
+    // Método para serializar um objeto para JSON
     public static byte[] toJson(Object obj) throws IOException {
-        return mapper.writeValueAsBytes(obj);
+        return mapper.writeValueAsBytes(obj);  // Serializa o objeto em JSON
     }
-    
+
+    // Método para desserializar um JSON em um objeto
     public static <T> T fromJson(byte[] json, Class<T> type) throws IOException {
-        return mapper.readValue(json, type);
+        return mapper.readValue(json, type);  // Desserializa o JSON de volta para o objeto
     }
 }
