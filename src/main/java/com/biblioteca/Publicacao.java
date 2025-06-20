@@ -9,19 +9,12 @@ public class Publicacao implements Serializable {
     protected String autor;
     protected int anoPublicacao;
 
-    // Construtor padrão
-    public Publicacao() {
-        // Construtor necessário para a desserialização do Jackson
-    }
-
-    // Construtor com parâmetros
     public Publicacao(String titulo, String autor, int anoPublicacao) {
         this.titulo = titulo;
         this.autor = autor;
         this.anoPublicacao = anoPublicacao;
     }
 
-    // Getters e Setters
     public String getTitulo() { return titulo; }
     public void setTitulo(String titulo) { this.titulo = titulo; }
 

@@ -3,7 +3,7 @@ package com.biblioteca;
 import java.rmi.RemoteException;
 import java.util.List;
 import java.util.ArrayList;
-import java.io.Serializable;  // Importando para serialização
+import java.io.Serializable;
 
 public class BibliotecaRemotaImpl implements GestaoBibliotecaRemota, Serializable {
     private static final long serialVersionUID = 1L;
@@ -52,9 +52,8 @@ public class BibliotecaRemotaImpl implements GestaoBibliotecaRemota, Serializabl
     @Override
     public String infoPublicacao(byte[] publicacaoSerializada) throws RemoteException {
         try {
-            // Desserializando para Revista, não para Publicacao
             Revista revista = Serializador.fromJson(publicacaoSerializada, Revista.class);
-            return revista.toString();  // Agora estamos tratando a Revista corretamente
+            return revista.toString();  
         } catch (Exception e) {
             throw new RemoteException("Erro ao desserializar publicação", e);
         }
