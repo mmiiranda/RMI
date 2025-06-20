@@ -35,7 +35,7 @@ mvn clean install
 ```bash
 mvn clean install -P servidor
 ```
-* Após compilar o JAR do servidor, execute o servidor com o seguinte comando:
+* Após compilar o JAR do servidor, execute o servidor com o seguinte comando, em um novo terminal:
 ```bash
 java -jar target/biblioteca-rmi-1.0-SNAPSHOT-jar-with-dependencies.jar com.biblioteca.ServidorBiblioteca
 ```
@@ -45,13 +45,13 @@ java -jar target/biblioteca-rmi-1.0-SNAPSHOT-jar-with-dependencies.jar com.bibli
 Servidor RMI da Biblioteca pronto!
 ```
 ## 3. Rodar o Cliente
-* Depois de iniciar o servidor, você pode rodar o cliente para testar a comunicação entre o servidor e o cliente.
+* Depois de iniciar o servidor, você pode rodar o cliente para testar a comunicação entre o servidor e o cliente, no mesmo terminal que compilou o JAR do servidor.
 
 * Execute o Maven para o servidor:
 ```bash
 mvn clean install -P cliente
 ```
-* Após compilar o JAR do cliente, execute o cliente com o seguinte comando:
+* Após compilar o JAR do cliente, execute o cliente com o seguinte comando, em um novo terminal:
 ```bash
 java -jar target/biblioteca-rmi-1.0-SNAPSHOT-jar-with-dependencies.jar com.biblioteca.ClienteBiblioteca
 ```
