@@ -8,7 +8,7 @@ Maria Eduarda Santana Marques
 
 Mauricio Miranda Carneiro
 
-### Requisitos:
+### Objetivos:
 
 - **Comunicação Cliente-Servidor** através de **RMI**.
 - **Protocolo de Requisição-Resposta** 
