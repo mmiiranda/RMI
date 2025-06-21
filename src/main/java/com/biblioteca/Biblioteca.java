@@ -1,5 +1,8 @@
 package com.biblioteca;
 
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
@@ -7,6 +10,7 @@ import java.util.List;
 public class Biblioteca implements GestaoBibliotecaRemota {
     private String nome;
     private List<Publicacao> acervo;
+    private List<Cliente> clientes;
 
     public Biblioteca(String nome) {
         this.nome = nome;
@@ -45,13 +49,24 @@ public class Biblioteca implements GestaoBibliotecaRemota {
 
     @Override
     public void registrarCliente(Cliente c) throws RemoteException {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'registrarCliente'");
+        if (c != null) {
+            clientes.add(c);
+            System.out.println("Cliente registrado com sucesso: " + c.getNome());
+        } else {
+            throw new RemoteException("Erro ao registrar cliente: cliente inválido.");
+        }
     }
 
     @Override
     public String infoPublicacao(byte[] publicacaoSerializada) throws RemoteException {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'infoPublicacao'");
+        try {
+            ByteArrayInputStream bis = new ByteArrayInputStream(publicacaoSerializada);
+            ObjectInputStream ois = new ObjectInputStream(bis);
+            Publicacao publicacao = (Publicacao) ois.readObject();
+            ois.close();
+            return "Título: " + publicacao.getTitulo() + ", Autor: " + publicacao.getAutor();
+        } catch (IOException | ClassNotFoundException e) {
+            throw new RemoteException("Erro ao deserializar a publicação.", e);
+        }
     }
 }
